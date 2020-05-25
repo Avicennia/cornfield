@@ -30,6 +30,11 @@ minetest.register_node(tm.."vestibule", {
 			{0.25, -0.0625, 0.375, 0.3125, 0.125, 0.5}, -- NodeBox24
 		}
     },
-    groups = {silica_clear = 1, cracky = 4, cf_charge = 1, cf_charge_entry = 1}
+    groups = {silica_clear = 1, cracky = 4, cf_charge = 1, falling_node = 2},
+    on_punch = function(pos)
+    --minetest.remove_node(pos)
+    minetest.chat_send_all(minetest.get_meta(pos):get_int("cf_charge"))
+
+    end
 })
 

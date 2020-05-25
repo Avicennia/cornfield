@@ -34,9 +34,10 @@ minetest.register_node(tm.."controller", {
 			{0.375, 0.3125, -0.375, 0.4375, 0.4375, 0.375}, -- NodeBox48
 		}
     },
-    groups = {cracky = 5, cf_charge = 2},
+    groups = {cracky = 5, cf_charge = 2,falling_node = 1},
     on_punch = function(pos)
         --minetest.set_node(pos, {name = tm .. "controller", param2 = minetest.get_node(pos).param2 + 1})
+        minetest.remove_node(pos)
     end,
     on_construct = function(pos)
     
